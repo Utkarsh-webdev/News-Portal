@@ -10,7 +10,11 @@ import categoryRoutes from "./routes/categories.js";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:5173", ""],
+  methods: ["POST", "GET", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
